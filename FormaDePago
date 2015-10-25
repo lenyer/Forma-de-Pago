@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class FormaDePago
+{
+    private RegistradorTarjeta rt;
+    private DepositoBancario db;
+    private int opcion;
+    private int cont = 0;
+
+    public void elegirFormaDePago( )
+    {
+        System.out.println( "Por favor eliga una forma de pago" );
+        System.out.println( "1) Deposito bancario" );
+        System.out.println( "2) Tarjeta de credito" );
+        Scanner sc = new Scanner( System.in );
+        opcion = sc.nextInt( );
+        do
+        {
+            switch( opcion )
+            {
+                case 1:
+                    db = new DepositoBancario( );
+                    db.imprimirBoucher( );
+                    cont ++;
+                    break;
+
+                case 2:
+                    rt = new RegistradorTarjeta( );
+                    rt.setNumTarjeta( );
+                    rt.setNombreTarjeta( );
+                    rt.setFecha( );
+                    rt.setNumVerificador( );
+                    cont ++;
+                    break;
+
+                default:
+                    System.out.println( "Opcion incorrecta, porfavor intentelo denuevo" );
+                    break;    
+            }
+        } while ( cont == 0 );
+    }
+}
